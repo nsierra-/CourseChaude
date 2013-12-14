@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 21:18:47 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 09:02:39 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/14 10:13:36 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 static t_elem   *init_fpush(t_elem *lst_elem)
 {
 	t_elem      *new_elem;
+
 	if (lst_elem == NULL)
 	{
 		lst_elem = malloc(sizeof(t_elem));
@@ -30,8 +31,7 @@ static t_elem   *init_fpush(t_elem *lst_elem)
 			lst_elem->next = NULL;
 			return (lst_elem);
 		}
-		ft_putendl(strerror(errno));
-		return (NULL);
+		return (ft_putendl(strerror(errno)));
 	}
 	new_elem = malloc(sizeof(t_elem));
 	if (new_elem)
@@ -41,16 +41,9 @@ static t_elem   *init_fpush(t_elem *lst_elem)
 		new_elem->next = lst_elem;
 		return (new_elem);
 	}
-	ft_putendl(strerror(errno));
-	return (NULL);
+	return (ft_putendl(strerror(errno)));
 }
 
-static void		ft_puterror(char *line)
-{
-	ft_putstr(line);
-	ft_putchar(':');
-	ft_putendl(" Not found.");
-}
 
 t_elem     *get_elem(void)
 {
@@ -76,35 +69,6 @@ t_elem     *get_elem(void)
 	tmp = lst_elem->next;
 	free(lst_elem);
 	return (tmp);
-}
-
-t_elem			*search_keyword(t_elem *lst_elem)
-{
-	char		*line;
-	int			check;
-	t_elem		*cursor;
-
-	while (get_next_line(0, &line) > 0)
-	{
-		check = 1;
-		cursor = lst_elem;
-		while (cursor != NULL && check)
-		{
-			if (ft_strcmp(cursor->keyword, line) == 0)
-			{
-				ft_putendl(cursor->value);
-				check = 0;
-			}
-			else if (cursor->next == NULL)
-			{
-				ft_puterror(line);
-				check = 0;
-			}
-			else
-				cursor = cursor->next;
-		}
-	}
-	return (lst_elem);
 }
 
 int				free_the_slaves(t_elem *lst_elem)
