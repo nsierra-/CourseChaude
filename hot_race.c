@@ -6,13 +6,14 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 21:18:47 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 03:35:04 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/14 03:42:03 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hot_race.h"
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static void          *lst_init(t_elem *elem)
 {
@@ -59,7 +60,6 @@ static void     get_elem(t_elem *lst_elem)
 	return ;
 }
 
-#include <stdio.h>
 void            print_list(t_elem *lst_elem)
 {
 	t_elem      *cursor;
