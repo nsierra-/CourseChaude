@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strend.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#!&+#+#+   +#+           */
-/*   Created: 2013/12/06 06:27:39 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/06 06:27:39 by nsierra-         ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2013/12/14 08:40:15 by nsierra-          #+#    #+#             */
+/*   Updated: 2013/12/14 08:40:34 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** Permet de placer le curseur du string en fin de chaine: '\0'
-*/
-void	ft_strend(char **str)
+#include "hot_race.h"
+
+int             main(void)
 {
-	while (**str != '\0')
-		++(*str);
+	return (free_the_slaves(search_keyword(get_elem())));   
 }

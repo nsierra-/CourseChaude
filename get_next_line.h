@@ -5,24 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/13 21:20:47 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 02:09:17 by nsierra-         ###   ########.fr       */
+/*   Created: 2013/12/14 06:57:51 by nsierra-          #+#    #+#             */
+/*   Updated: 2013/12/14 09:06:15 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
-# include <stdlib.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 # include <unistd.h>
-# define BUFF_SIZE 1024
+# include <stdlib.h>
+# define BUFF_SIZE 262144
 
-int		get_next_line(int const fd, char **line);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(const char *s1, const char *s2);
-size_t	ft_strlen(const char *s);
-char	*ft_strnew(size_t size);
-char	*ft_strsub(const char *s, unsigned int start, size_t len);
-char	*ft_strcat(char *s1, const char *s2);
-void	ft_strend(char **str);
+int					get_next_line(int const fd, char **line);
 
-#endif
+typedef struct		s_read
+{
+	int				size;
+	int				index;
+	int				fd;
+	char			*read;
+	struct s_read	*next;
+}					t_read;
+
+#endif /* !GET_NEXT_LINE_H */

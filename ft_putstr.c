@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#!&+#+#+   +#+           */
-/*   Created: 2013/12/06 06:27:39 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 02:06:59 by nsierra-         ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2013/11/22 23:24:27 by nsierra-          #+#    #+#             */
+/*   Updated: 2013/12/14 05:26:40 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "hot_race.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putstr(const char *s)
 {
-	char	*save;
-
-	save = (char*)s;
-	while (*save != '\0')
-	{
-		++save;
-	}
-	return (save - s);
+	while (*s)
+		ft_putchar(*s++);
 }

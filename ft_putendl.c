@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#!&+#+#+   +#+           */
-/*   Created: 2013/12/06 06:27:39 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 02:09:35 by nsierra-         ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2013/11/22 23:26:19 by nsierra-          #+#    #+#             */
+/*   Updated: 2013/12/14 05:25:51 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "hot_race.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_putendl(const char *s)
 {
-	char	*save;
-
-	save = s1;
-	ft_strend(&save);
-	while(*s2 != '\0')
-	{
-		*save = *s2;
-		++save;
-		++s2;
-	}
-	*save = '\0';
-	return (s1);
+	ft_putstr(s);
+	ft_putchar('\n');
 }
