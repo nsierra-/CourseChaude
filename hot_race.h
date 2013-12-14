@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 23:34:20 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 10:41:33 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/14 11:09:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct		s_output
 	int				found;
 	int				index;
 	struct s_output	*next;
+	struct s_output	*prev;
+	struct s_output	*tail;
 }					t_output;
 
 t_elem	*get_elem(void);

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/14 09:44:01 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 10:56:02 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/14 11:47:42 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <stdio.h>
 
 static t_output	*fpush_output(t_output *out, char *line)
 {
@@ -27,13 +28,16 @@ static t_output	*fpush_output(t_output *out, char *line)
 		new_output->value = NULL;
 		new_output->found = FALSE;
 		new_output->index = index++;
-		new_output->next = out;
-		return (new_output);
+		new_output->next = NULL;
+		new_output->prev = out->tail;
+		new_output->tail = new_output;
+		out->tail->next = new_output;
+		out->tail = new_output;
+		return (out);
 	}
 	return (ft_putendl(strerror(errno)));
 }
 
-#include <stdio.h>
 static void		print_list(t_output *out)
 {
 	t_output	*cursor;
@@ -42,9 +46,7 @@ static void		print_list(t_output *out)
 	while (cursor != NULL)
 	{
 		if (cursor->found == TRUE)
-		{
 			ft_putendl(cursor->value);
-		}
 		else
 		{
 			ft_putstr(cursor->keyword_to_find);
@@ -54,13 +56,6 @@ static void		print_list(t_output *out)
 	}
 }
 
-/* static void		ft_puterror(char *line) */
-/* { */
-/* 	ft_putstr(line); */
-/* 	ft_putchar(':'); */
-/* 	ft_putendl(" Not found."); */
-/* } */
-
 static void		compare_line(const t_elem *current_elem, t_output *out)
 {
 	t_output	*cursor;
@@ -69,7 +64,9 @@ static void		compare_line(const t_elem *current_elem, t_output *out)
 	while (cursor != NULL)
 	{
 		if (cursor->found == TRUE)
+		{
 			cursor = cursor->next;
+		}
 		else if (ft_strcmp(cursor->keyword_to_find, current_elem->keyword) == 0)
 		{
 			cursor->value = current_elem->value;
@@ -81,6 +78,23 @@ static void		compare_line(const t_elem *current_elem, t_output *out)
 	}
 }
 
+static t_output	*init_out(t_output *out, char *line)
+{
+	out = malloc(sizeof(t_output));
+	if (out)
+	{
+	out->keyword_to_find = line;
+	out->value = NULL;
+	out->found = FALSE;
+	out->index = 1;
+	out->next = NULL;
+	out->prev = NULL;
+	out->tail = out;
+	return (out);
+	}
+	return (ft_putendl(strerror(errno)));
+}
+
 t_elem			*search_keyword(t_elem *lst_elem)
 {
 	char		*line;
@@ -88,6 +102,8 @@ t_elem			*search_keyword(t_elem *lst_elem)
 	t_elem		*cursor;
 
 	out = NULL;
+	if (get_next_line(0, &line) > 0)
+		out = init_out(out, line);
 	cursor = lst_elem;
 	while (get_next_line(0, &line) > 0)
 		out = fpush_output(out, line);
@@ -97,26 +113,13 @@ t_elem			*search_keyword(t_elem *lst_elem)
 		cursor = cursor->next;
 	}
 	print_list(out);
-	/* print_list(out); */
-	/* while (get_next_line(0, &line) > 0) */
-	/* { */
-	/* 	check = 1; */
-	/* 	cursor = lst_elem; */
-	/* 	while (cursor != NULL && check) */
-	/* 	{ */
-	/* 		if (ft_strcmp(cursor->keyword, line) == 0) */
-	/* 		{ */
-	/* 			ft_putendl(cursor->value); */
-	/* 			check = 0; */
-	/* 		} */
-	/* 		else if (cursor->next == NULL) */
-	/* 		{ */
-	/* 			ft_puterror(line); */
-	/* 			check = 0; */
-	/* 		} */
-	/* 		else */
-	/* 			cursor = cursor->next; */
-	/* 	} */
-	/* } */
+	while (out->next != NULL)
+	{
+		free(out->keyword_to_find);
+		out = out->next;
+		free(out->prev);
+	}
+	free(out->keyword_to_find);
+	free(out);
 	return (lst_elem);
 }
