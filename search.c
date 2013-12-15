@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/14 09:44:01 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/14 11:47:42 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/15 03:39:38 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,13 @@ static void		compare_line(const t_elem *current_elem, t_output *out)
 	cursor = out;
 	while (cursor != NULL)
 	{
-		if (cursor->found == TRUE)
-		{
-			cursor = cursor->next;
-		}
-		else if (ft_strcmp(cursor->keyword_to_find, current_elem->keyword) == 0)
+		if (ft_strcmp(cursor->keyword_to_find, current_elem->keyword) == 0
+				&& cursor->found == FALSE)
 		{
 			cursor->value = current_elem->value;
 			cursor->found = TRUE;
-			break ;
 		}
-		else
-			cursor = cursor->next;
+		cursor = cursor->next;
 	}
 }
 
