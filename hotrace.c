@@ -74,9 +74,9 @@ static t_to_free	*lst_fpush(t_to_free *to_free)
 static t_to_free	*init_push(t_to_free *to_free)
 {
 	if (to_free == NULL)
-		return(lst_init());
+		return (lst_init());
 	else
-		return(lst_fpush(to_free));
+		return (lst_fpush(to_free));
 }
 
 int					main(void)
