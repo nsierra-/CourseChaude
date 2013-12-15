@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/15 20:17:38 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/15 20:45:54 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/15 22:37:31 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_elem		*ft_build_keyword(t_elem **elem, char *line,
 	}
 	else
 	{
-		if (ft_strcmp(elem[hashich]->keyword, line) != 0)
+		if (ft_strcmp_ns(elem[hashich]->keyword, line) != 0)
 			return (ft_pop_elem(elem[hashich], line));
 		else
 			return (elem[hashich]);
@@ -89,7 +89,7 @@ int					main(void)
 
 	i = 0;
 	to_free = NULL;
-	while (get_next_line(0, &line) > 0 && ft_strcmp("", line) != 0)
+	while (get_next_line(0, &line) > 0 && ft_strcmp_ns("", line) != 0)
 	{
 		if (i % 2 == 0)
 		{
@@ -101,7 +101,7 @@ int					main(void)
 			tmp->value = line;
 			to_free->value = tmp->value;
 		}
-		i = i + 1;
+		++i;
 	}
 	search_keywords(elem);
 	free_the_slaves(to_free);

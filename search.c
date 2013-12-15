@@ -13,6 +13,20 @@
 #include "hotrace.h"
 #include "gnl.h"
 
+static int			ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 == *s2)
+	{
+		if (*s1 == 0)
+			return (0);
+		++s1;
+		++s2;
+	}
+	if (*s1 > *s2)
+		return (1);
+	return (-1);
+}
+
 static void			ft_collision(t_elem *elem, char *line)
 {
 	t_elem			*cursor;

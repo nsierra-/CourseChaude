@@ -15,7 +15,21 @@
 #include <string.h>
 #include <errno.h>
 
-t_elem		*ft_pop_elem(t_elem *elem, char *line)
+static int		ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 == *s2)
+	{
+		if (*s1 == 0)
+			return (0);
+		++s1;
+		++s2;
+	}
+	if (*s1 > *s2)
+		return (1);
+	return (-1);
+}
+
+t_elem			*ft_pop_elem(t_elem *elem, char *line)
 {
 	t_elem	*new_elem;
 	t_elem	*cursor;

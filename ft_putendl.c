@@ -13,7 +13,17 @@
 #include "hotrace.h"
 #include <unistd.h>
 
-void	*ft_putendl(const char *s)
+static size_t		ft_strlen(const char *s)
+{
+	char	*save;
+
+	save = (char*)s;
+	while (*save != '\0')
+		++save;
+	return (save - s);
+}
+
+void				*ft_putendl(const char *s)
 {
 	write(1, s, ft_strlen(s));
 	write(1, "\n", 1);

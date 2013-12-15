@@ -13,13 +13,13 @@
 NAME = hotrace
 
 SRC = free.c ft_hashich.c ft_pop_elem.c ft_putendl.c ft_putstr.c ft_strcmp.c  \
-		ft_strlen.c gnl.c hotrace.c search.c
+		gnl.c hotrace.c search.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = llvm-gcc
 
-CFLAGS = -Wall -Wextra -Werror -O3 -pedantic
+CFLAGS = -O3 -Wall -Wextra -Werror
 
 all: $(NAME)
 
