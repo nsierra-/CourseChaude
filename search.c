@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include <stdio.h>
 
 static t_output	*fpush_output(t_output *out, char *line)
 {

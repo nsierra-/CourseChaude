@@ -12,7 +12,7 @@
 
 #include "hot_race.h"
 
-int             main(void)
+int		main(void)
 {
-	return (free_the_slaves(search_keyword(get_elem())));   
+	return (free_the_slaves(search_keyword(get_elem())));
 }

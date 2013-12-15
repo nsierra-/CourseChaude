@@ -17,7 +17,7 @@ SRC = get_next_line.c hot_race.c ft_strcmp.c ft_putendl.c ft_putstr.c		   \
 
 OBJ = $(SRC:.c=.o)
 
-CC = gcc
+CC = llvm-gcc
 
 CFLAGS = -Wall -Wextra -Werror -O3
 

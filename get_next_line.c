@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-static	t_read		*ft_freeread(t_read *red, t_read *prev, t_read **start)
+static t_read		*ft_freeread(t_read *red, t_read *prev, t_read **start)
 {
 	if (!prev)
 		*start = red->next;
@@ -26,7 +26,7 @@ static	t_read		*ft_freeread(t_read *red, t_read *prev, t_read **start)
 		return (prev->next);
 }
 
-static	t_read		*ft_newread(int fd)
+static t_read		*ft_newread(int fd)
 {
 	t_read			*red;
 	void			*tmp;
@@ -53,7 +53,7 @@ static	t_read		*ft_newread(int fd)
 	return (red);
 }
 
-static	int			ft_print(int n, t_read **tab, t_read **s, char** l)
+static int			ft_print(int n, t_read **tab, t_read **s, char** l)
 {
 	char			*tmpstr;
 	int				index;
@@ -82,7 +82,7 @@ static	int			ft_print(int n, t_read **tab, t_read **s, char** l)
 	return (1);
 }
 
-static	int			ft_findendl(int fd, t_read *red)
+static int			ft_findendl(int fd, t_read *red)
 {
 	int				index;
 	int				size;

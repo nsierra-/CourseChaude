@@ -17,9 +17,9 @@
 #include <string.h>
 #include <errno.h>
 
-static t_elem   *init_fpush(t_elem *lst_elem)
+static t_elem	*init_fpush(t_elem *lst_elem)
 {
-	t_elem      *new_elem;
+	t_elem		*new_elem;
 
 	if (lst_elem == NULL)
 	{
@@ -45,11 +45,11 @@ static t_elem   *init_fpush(t_elem *lst_elem)
 }
 
 
-t_elem     *get_elem(void)
+t_elem			*get_elem(void)
 {
-	char        *line;
-	int         i;
-	t_elem      *lst_elem;
+	char		*line;
+	int			i;
+	t_elem		*lst_elem;
 	t_elem		*tmp;
 
 	lst_elem = NULL;
