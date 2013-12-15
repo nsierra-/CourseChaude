@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/15 20:50:12 by nsierra-          #+#    #+#              #
-#    Updated: 2013/12/15 20:51:43 by nsierra-         ###   ########.fr        #
+#    Updated: 2013/12/15 21:04:19 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ = $(SRC:.c=.o)
 
 CC = llvm-gcc
 
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror -O3 -pedantic
 
 all: $(NAME)
 

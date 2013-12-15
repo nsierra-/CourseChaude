@@ -6,13 +6,14 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/15 20:17:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/15 20:47:22 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/15 21:03:20 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HOTRACE_H
 # define HOTRACE_H
 # define HASH_TABLE_SIZE 4194304
+# define ELEM elem[hashich]
 # include <stddef.h>
 
 typedef const unsigned int	t_cui;

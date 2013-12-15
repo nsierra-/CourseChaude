@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/15 20:36:11 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/15 20:48:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/15 21:03:29 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void				search_keywords(t_elem **elem)
 		}
 		else
 		{
-			if (ft_strcmp(line, elem[hashich]->keyword) == 0 && elem[hashich]->value != NULL)
+			if (ft_strcmp(line, ELEM->keyword) == 0 && ELEM->value != NULL)
 				ft_putendl(elem[hashich]->value);
 			else if (elem[hashich]->next != NULL)
 				ft_collision(elem[hashich]->next, line);
