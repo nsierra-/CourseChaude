@@ -17,7 +17,7 @@ SRC = free.c ft_hashich.c ft_pop_elem.c ft_putendl.c ft_putstr.c ft_strcmp.c  \
 
 OBJ = $(SRC:.c=.o)
 
-CC = llvm-gcc
+CC = gcc
 
 CFLAGS = -O3 -Wall -Wextra -Werror
 
@@ -39,4 +39,4 @@ test: fclean all
 
 re: fclean all
 
-.PHONY: compile_lib
+.PHONY: clean fclean re
